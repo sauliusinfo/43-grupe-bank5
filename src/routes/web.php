@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BankController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//   return view('welcome');
+// });
+Route::get('/404', function () {
+  return view('404');
+})->name('404');
+
+Route::get('/', [BankController::class, 'bank']);
+Route::get('/phpinfo', [BankController::class, 'phpinfo'])->name('about-php');
+Route::get('/black', [BankController::class, 'index']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
