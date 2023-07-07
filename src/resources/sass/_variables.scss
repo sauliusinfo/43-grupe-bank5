@@ -2,7 +2,7 @@
 $body-bg: #f8fafc;
 
 // Typography
-$font-family-sans-serif: 'Lexend Zetta', sans-serif;
+$font-family-sans-serif: 'Kodchasan', sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
 
@@ -82,11 +82,11 @@ $line-height-base: 1.6;
 // error 404
 .my-bg-text {
   // background: linear-gradient(to right, #FFC371, #FF5F6D);
-  background: linear-gradient(to right, rgba(112, 23, 209, 1), rgba(43, 123, 252, 1));
+  background: linear-gradient(to right, rgba(124, 35, 221, 1), rgba(43, 123, 252, 1));
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 .text-xl {
-  font-size: 5em;
+  font-size: 5rem;
 }

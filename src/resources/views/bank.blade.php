@@ -16,7 +16,7 @@
     </div>
     
     <div class="position-absolute bottom-0 start-50 translate-middle-x" style="margin-bottom: 10px;">
-      Black Bank runs on {{ $serverInfo }} server
+      {{ $serverInfo }}
     </div>
 
     <div class="position-absolute bottom-0 start-50 translate-middle-x" style="margin-bottom: 100px;">
