@@ -75,7 +75,11 @@
 
         {{-- <main class="py-4"> --}}
         <main>
-            @yield('content')
+          <div class="vh-100 my-bg">
+            <div class="container h-100">          
+              @yield('content')
+            </div>
+          </div>
         </main>
     </div>
 </body>
