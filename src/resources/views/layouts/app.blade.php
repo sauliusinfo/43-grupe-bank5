@@ -32,6 +32,24 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
 
+                      <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            Clients
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+
+                            <a class="dropdown-item" href="{{ route('clients-index') }}">
+                                Clients List
+                            </a>
+                            <a class="dropdown-item" href="{{ route('clients-create') }}">
+                                Client Create
+                            </a>
+
+                        </div>
+                    </li>
+
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -76,7 +94,9 @@
         {{-- <main class="py-4"> --}}
         <main>
           <div class="vh-100 my-bg">
-            <div class="container h-100">          
+            <div class="container h-100">
+              @include('msg.message')
+              @include('msg.errors')
               @yield('content')
             </div>
           </div>
