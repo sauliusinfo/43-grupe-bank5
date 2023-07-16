@@ -14,6 +14,7 @@
             <th>Surname</th>
             <th>Total Accounts</th>
             <th>Total Amount</th>
+            <th colspan="2"></th>
           </tr>
         </thead>
         <tbody>
@@ -40,6 +41,19 @@
               </a>
             </td>
             <td>{{$client->accounts()->sum('amount')}}</td>
+            <td>
+              <div class="text-center">
+                <button type="button" class="btn btn-outline-success edit"
+                  onclick="window.location.href='#'"></button>
+              </div>
+            </td>
+            <td>
+              <div class="text-center">
+                <button type="button" class="btn btn-outline-danger delete"
+                  onclick="window.location.href='#'"
+                  {{($client->accounts()->sum('amount') > 0) ? 'disabled' : ''}}></button>
+              </div>
+            </td>
           </tr>
           @php
           $counter++;
@@ -47,43 +61,15 @@
           
           @empty
           <tr>
-            <td>
-              <p class="text-center">Empty table</p>
+            <td colspan="7">
+              <p class="text-center" style="color: crimson">Has No Clients</p>
             </td>
           </tr>
           @endforelse
         </tbody>
       </table>
 
-          {{-- <ul class="list-group list-group-flush">
-            @forelse($clients as $client)
-            <li class="list-group-item">
-              <div class="d-flex justify-content-between">
-                <div>
-                  <div class="d-flex">
-                    <div class="ms-2">
-                      <div>{{$client->name}}</div>
-                      <div>{{$client->surname}}</div>
-                      <div>[{{$client->colors()->count()}}]</div>
-                    </div>
-                  </div>
-                </div>
-                <div>
-                  <a class="btn btn-success" href="{{route('clients-edit', $client)}}">Edit</a>
-                  <a class="btn btn-danger" href="{{route('clients-delete', $client)}}">Delete</a>
-                </div>
-              </div>
-            </li>
-            @empty
-            <li class="list-group-item">
-              <p class="text-center">No authors</p>
-            </li>
-            @endforelse
-          </ul> --}}
-
-
-
     </div>
   </div>
-</div>  
+</div>
 @endsection

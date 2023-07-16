@@ -37,21 +37,22 @@ class ClientController extends Controller
     $validator = Validator::make(
       $request->all(),
       [
-        'first_name' => 'required|max:50|min:3|alpha',
-        'last_name' => 'required|max:50|min:3|alpha',
-        'personal_id' => 'required|max_digits:11',
+        'name' => 'required|max:50|min:3|alpha',
+        'sname' => 'required|max:50|min:3|alpha',
+        'cid' => 'required|min_digits:11|max_digits:11',
       ],
       [
-        'first_name.required' => 'Please enter client first name!',
-        'first_name.max' => 'Client first name is too long!',
-        'first_name.min' => 'Client first name is too short!',
-        'first_name.alpha' => 'Client first name must contain only letters!',
-        'last_name.required' => 'Please enter client last name!',
-        'last_name.max' => 'Client last name is too long!',
-        'last_name.min' => 'Client last name is too short!',
-        'last_name.alpha' => 'Client last name must contain only letters!',
-        'personal_id.required' => 'Please enter client personal ID!',
-        'personal_id.max_digits' => 'Personal ID must consist of 11 numbers!',
+        'name.required' => 'Please enter client first name!',
+        'name.max' => 'Client first name is too long!',
+        'name.min' => 'Client first name is too short!',
+        'name.alpha' => 'Client first name must contain only letters!',
+        'sname.required' => 'Please enter client last name!',
+        'sname.max' => 'Client last name is too long!',
+        'sname.min' => 'Client last name is too short!',
+        'sname.alpha' => 'Client last name must contain only letters!',
+        'cid.required' => 'Please enter client Card ID!',
+        'cid.min_digits' => 'Card ID must consist at least 11 numbers!',
+        'cid.max_digits' => 'Card ID must consist of 11 numbers!',
       ]
     );
 
@@ -61,9 +62,9 @@ class ClientController extends Controller
     }
 
     $client = new Client;
-    $client->first_name = $request->first_name;
-    $client->last_name = $request->last_name;
-    $client->personal_id = $request->personal_id;
+    $client->name = $request->name;
+    $client->surname = $request->sname;
+    $client->card_id = $request->cid;
 
     $client->save();
     return redirect()

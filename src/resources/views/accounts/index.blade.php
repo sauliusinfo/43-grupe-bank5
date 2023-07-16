@@ -25,14 +25,12 @@
             <td scope="row">{{$counter}}.</td>
             <td>{{$account->account_no}}</td>
             <td>{{$account->amount}}</td>
-            
             <td>
               <div class="text-center">
                 <button type="button" class="btn btn-outline-success edit"
                   onclick="window.location.href='#'"></button>
               </div>
             </td>
-            
             <td>
               <div class="text-center">
                 <button type="button" class="btn btn-outline-danger delete"
@@ -40,7 +38,6 @@
                   {{($account->amount > 0) ? 'disabled' : ''}}></button>
               </div>
             </td>
-
           </tr>
           @php
           $counter++;
@@ -48,14 +45,15 @@
           
           @empty
           <tr>
-            <td>
-              <p class="text-center">Empty table</p>
+            <td colspan="5">
+              <p class="text-center" style="color: crimson">Client Has No Accounts</p>
             </td>
           </tr>
           @endforelse
         </tbody>
       </table>
+      
     </div>
   </div>
-</div>  
+</div>
 @endsection
