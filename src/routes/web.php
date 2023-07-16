@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccountController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BankController;
 use App\Http\Controllers\ClientController;
@@ -36,6 +37,16 @@ Route::prefix('clients')->name('clients-')->group(function () {
   Route::put('/{client}', [ClientController::class, 'update'])->name('update');
   Route::get('/delete/{client}', [ClientController::class, 'delete'])->name('delete');
   Route::delete('/{client}', [ClientController::class, 'destroy'])->name('destroy');
+});
+
+Route::prefix('accounts')->name('accounts-')->group(function () {
+  Route::get('/', [AccountController::class, 'index'])->name('index');
+  Route::get('/create', [AccountController::class, 'create'])->name('create');
+  Route::post('/', [AccountController::class, 'store'])->name('store');
+  Route::get('/edit/{client}', [AccountController::class, 'edit'])->name('edit');
+  Route::put('/{client}', [AccountController::class, 'update'])->name('update');
+  Route::get('/delete/{client}', [AccountController::class, 'delete'])->name('delete');
+  Route::delete('/{client}', [AccountController::class, 'destroy'])->name('destroy');
 });
 
 Auth::routes();

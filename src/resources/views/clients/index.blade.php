@@ -6,7 +6,7 @@
     <div class="col-md-10">
       <h5>Clients List</h5>
 
-      <table class="table table-dark table-hover">
+      <table class="table table-dark table-hover my-table">
         <thead>
           <tr>
             <th scope="col">No.</th>
@@ -26,7 +26,19 @@
             <td scope="row">{{$counter}}.</td>
             <td>{{$client->name}}</td>
             <td>{{$client->surname}}</td>
-            <td><a href="#">{{$client->accounts()->count()}}</a></td>
+            <td>
+              <a href="{{route(
+                                'accounts-index',
+                                  [
+                                    'id' => $client,
+                                    'name' => $client->name,
+                                    'sname' => $client->surname,
+                                    'cid' => $client->card_id
+                                  ]
+                                )}}">
+                {{$client->accounts()->count()}}
+              </a>
+            </td>
             <td>{{$client->accounts()->sum('amount')}}</td>
           </tr>
           @php
