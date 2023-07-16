@@ -69,6 +69,10 @@
         </tbody>
       </table>
 
+      <div data-bs-theme="dark">
+        {{$clients->links('pagination::bootstrap-5')}}
+      </div>
+
     </div>
   </div>
 </div>

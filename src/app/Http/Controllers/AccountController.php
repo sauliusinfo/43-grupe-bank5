@@ -22,7 +22,7 @@ class AccountController extends Controller
                 // ->orWhere('email', 'LIKE', '%' . $query . '%');
     }
 
-    $accounts = $accounts->get();
+    $accounts = $accounts->paginate(7);
     // dd($accounts);
 
     return view('accounts.index', [

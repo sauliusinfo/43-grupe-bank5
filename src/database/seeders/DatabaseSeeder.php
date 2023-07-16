@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
       'password' => Hash::make('Testas12345')
     ]);
 
-    foreach (range(1, 7) as $_) {
+    foreach (range(1, 30) as $_) {
       DB::table('clients')->insert([
         'name' => $faker->firstName,
         'surname' => $faker->lastName,
@@ -31,10 +31,10 @@ class DatabaseSeeder extends Seeder
       ]);
     }
     
-    foreach (range(1, 50) as $_) {
+    foreach (range(1, 200) as $_) {
       DB::table('accounts')->insert([
         'account_no' => $faker->iban($countryCode),
-        'client_id' => $faker->numberBetween(1, 7)
+        'client_id' => $faker->numberBetween(1, 20)
       ]);
     }
   }

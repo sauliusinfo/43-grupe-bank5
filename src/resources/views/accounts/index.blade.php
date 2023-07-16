@@ -4,7 +4,12 @@
 <div class="row d-flex justify-content-center align-items-center h-100">
   <div class="row justify-content-center">
     <div class="col-md-8">
-      <h5>Accounts Of: {{request()->query('name')}} {{request()->query('sname')}} [{{request()->query('cid')}}]</h5>
+      <h5>Accounts Of:
+        {{(request()->query('id'))
+          ? request()->query('name').' '.request()->query('sname').' ['.request()->query('cid').']'
+          : 'All Clients'
+        }}
+      </h5>
 
       <table class="table table-dark table-hover my-table">
         <thead>
@@ -52,7 +57,11 @@
           @endforelse
         </tbody>
       </table>
-      
+
+      <div data-bs-theme="dark">
+        {{$accounts->appends(request()->query())->links('pagination::bootstrap-5')}}
+      </div>
+
     </div>
   </div>
 </div>
