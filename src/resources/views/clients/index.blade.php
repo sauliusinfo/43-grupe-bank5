@@ -19,12 +19,12 @@
         </thead>
         <tbody>
           @php
-          $counter = 1;
+          $counter = ($clients->currentPage() - 1) * $clients->perPage() + 1;
           @endphp
-          
+
           @forelse($clients as $client)
           <tr>
-            <td scope="row">{{$counter}}.</td>
+            <td scope="row">{{$counter++}}.</td>
             <td>{{$client->name}}</td>
             <td>{{$client->surname}}</td>
             <td>
@@ -37,7 +37,7 @@
                                     'cid' => $client->card_id
                                   ]
                                 )}}">
-                {{$client->accounts()->count()}}
+                .. {{$client->accounts()->count()}}
               </a>
             </td>
             <td>{{$client->accounts()->sum('amount')}}</td>
@@ -55,9 +55,6 @@
               </div>
             </td>
           </tr>
-          @php
-          $counter++;
-          @endphp
           
           @empty
           <tr>

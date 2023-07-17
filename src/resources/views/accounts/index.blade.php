@@ -22,12 +22,12 @@
         </thead>
         <tbody>
           @php
-          $counter = 1;
+          $counter = ($accounts->currentPage() - 1) * $accounts->perPage() + 1;
           @endphp
           
           @forelse($accounts as $account)
           <tr>
-            <td scope="row">{{$counter}}.</td>
+            <td scope="row">{{$counter++}}.</td>
             <td>{{$account->account_no}}</td>
             <td>{{$account->amount}}</td>
             <td>
@@ -44,9 +44,6 @@
               </div>
             </td>
           </tr>
-          @php
-          $counter++;
-          @endphp
           
           @empty
           <tr>
