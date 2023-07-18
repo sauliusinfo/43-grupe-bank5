@@ -28,6 +28,14 @@
             <td>{{$client->name}}</td>
             <td>{{$client->surname}}</td>
             <td>
+              <div class="text-center">
+                <button type="button" class="btn btn-outline-primary" style="width: 100%"
+                  onclick="window.location.href='{{route('accounts-index', ['id' => $client,'name' => $client->name,'sname' => $client->surname,'cid' => $client->card_id])}}'">
+                  {{$client->accounts()->count()}}
+                </button>
+              </div>
+            </td>
+            {{-- <td>
               <a href="{{route(
                                 'accounts-index',
                                   [
@@ -37,9 +45,9 @@
                                     'cid' => $client->card_id
                                   ]
                                 )}}">
-                .. {{$client->accounts()->count()}}
+                {{$client->accounts()->count()}}
               </a>
-            </td>
+            </td> --}}
             <td>{{$client->accounts()->sum('amount')}}</td>
             <td>
               <div class="text-center">

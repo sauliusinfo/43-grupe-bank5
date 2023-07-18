@@ -37,9 +37,9 @@
                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                 Clients
               </a>
-              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="{{ route('clients-index') }}">List</a>
-                <a class="dropdown-item" href="{{ route('clients-create') }}">Create</a>
+              <div class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{{ route('clients-index') }}">Clients List</a>
+                <a class="dropdown-item" href="{{ route('clients-create') }}">Create New Client</a>
               </div>
             </li>
             
@@ -48,9 +48,9 @@
                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                 Accounts
               </a>
-              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="{{ route('accounts-index') }}">List</a>
-                <a class="dropdown-item" href="{{ route('accounts-create') }}">Create</a>
+              <div class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{{ route('accounts-index') }}">Accounts List</a>
+                <a class="dropdown-item" href="{{ route('accounts-create') }}">Create New Account</a>
               </div>
             </li>
 
@@ -77,7 +77,7 @@
                   {{ Auth::user()->name }}
                 </a>
 
-                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <div class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" href="{{ route('logout') }}"
                     onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">

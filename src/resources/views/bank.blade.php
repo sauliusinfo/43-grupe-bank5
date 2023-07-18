@@ -31,13 +31,18 @@
       </tr>
       <tr>
         <th scope="row">&#8226;</th>
-        <th>Biggest Ammount</th>
+        <th>Maximum Amount in One Account</th>
         <th>: {{$accounts->max('amount')}} Eur</th>
       </tr>
       <tr>
         <th scope="row">&#8226;</th>
         <th>Average Of Ammounts</th>
         <th>: {{round($accounts->avg('amount'),2)}} Eur</th>
+      </tr>
+      <tr>
+        <th scope="row">&#8226;</th>
+        <th>Total Accounts With 0 Amount</th>
+        <th>: {{$accounts->where('amount','=', 0)->count()}}</th>
       </tr>
       <tr>
         <th scope="row">&#8226;</th>

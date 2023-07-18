@@ -3,7 +3,7 @@
 @section('content')
 <div class="row d-flex justify-content-center align-items-center h-100">
   <div class="row justify-content-center">
-    <div class="col-md-8">
+    <div class="col-md-10">
       <h5>Accounts Of:
         {{(request()->query('id'))
           ? request()->query('name').' '.request()->query('sname').' ['.request()->query('cid').']'
@@ -32,6 +32,12 @@
             <td>{{$account->amount}}</td>
             <td>
               <div class="text-center">
+                <button type="button" class="btn btn-outline-primary"
+                  onclick="window.location.href='#'">Operations</button>
+              </div>
+            </td>
+            <td>
+              <div class="text-center">
                 <button type="button" class="btn btn-outline-success edit"
                   onclick="window.location.href='#'"></button>
               </div>
@@ -47,7 +53,7 @@
           
           @empty
           <tr>
-            <td colspan="5">
+            <td colspan="6">
               <p class="text-center" style="color: crimson">Client Has No Accounts</p>
             </td>
           </tr>
