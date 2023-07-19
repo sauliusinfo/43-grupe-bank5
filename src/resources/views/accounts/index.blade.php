@@ -6,7 +6,7 @@
     <div class="col-md-10">
       <h5>Accounts Of:
         {{(request()->query('id'))
-          ? request()->query('name').' '.request()->query('sname').' ['.request()->query('cid').']'
+          ? request()->query('name').' '.request()->query('sname').' ['.request()->query('card_id').']'
           : 'All Clients'
         }}
       </h5>

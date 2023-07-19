@@ -34,7 +34,7 @@
                     'id' => $client,
                     'name' => $client->name,
                     'sname' => $client->surname,
-                    'cid' => $client->card_id
+                    'card_id' => $client->card_id
                   ]
                 )}}"
                 class="btn btn-outline-primary d-grid gap-2">

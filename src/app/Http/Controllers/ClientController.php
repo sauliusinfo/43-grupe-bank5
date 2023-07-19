@@ -39,7 +39,7 @@ class ClientController extends Controller
       [
         'name' => 'required|max:50|min:3|alpha',
         'sname' => 'required|max:50|min:3|alpha',
-        'cid' => 'required|min_digits:11|max_digits:11',
+        'card_id' => 'required|min_digits:11|max_digits:11|unique:clients',
       ],
       [
         'name.required' => 'Please enter client first name!',
@@ -50,9 +50,10 @@ class ClientController extends Controller
         'sname.max' => 'Client last name is too long!',
         'sname.min' => 'Client last name is too short!',
         'sname.alpha' => 'Client last name must contain only letters!',
-        'cid.required' => 'Please enter client Card ID!',
-        'cid.min_digits' => 'Card ID must consist at least 11 numbers!',
-        'cid.max_digits' => 'Card ID must consist of 11 numbers!',
+        'card_id.required' => 'Please enter client Card ID!',
+        'card_id.min_digits' => 'Card ID must consist at least 11 numbers!',
+        'card_id.max_digits' => 'Card ID must consist of 11 numbers!',
+        'card_id.unique' => 'Card ID already exists!',
       ]
     );
 
@@ -64,7 +65,7 @@ class ClientController extends Controller
     $client = new Client;
     $client->name = $request->name;
     $client->surname = $request->sname;
-    $client->card_id = $request->cid;
+    $client->card_id = $request->card_id;
 
     $client->save();
     return redirect()
