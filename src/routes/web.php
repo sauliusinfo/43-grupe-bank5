@@ -25,6 +25,10 @@ Route::get('/404', function () {
   return view('404');
 })->name('404');
 
+Route::get('statistics', function () {
+  return view('statistics');
+})->name('statistics');
+
 Route::get('/', [BankController::class, 'bank']);
 Route::get('/phpinfo', [BankController::class, 'phpinfo'])->name('about-php');
 Route::get('/black', [BankController::class, 'index']);
@@ -51,4 +55,4 @@ Route::prefix('accounts')->name('accounts-')->group(function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/statistics', [App\Http\Controllers\HomeController::class, 'index'])->name('statistics');

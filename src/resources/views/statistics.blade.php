@@ -3,9 +3,9 @@
 @section('content')
 <div class="row d-flex justify-content-center align-items-center h-100">
   <div class="row justify-content-center">
-    <div class="col-md-8">
+    <div class="col-md-5">
       <div class="card bg-dark text-white">
-        <div class="card-header">{{ __('B&B Statistics') }}</div>
+        <h1 class="card-title text-center">{{ __('B&B Statistics') }}</h1>
 
         <div class="card-body">
           @if (session('status'))

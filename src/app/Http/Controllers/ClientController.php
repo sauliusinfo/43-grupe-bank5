@@ -69,7 +69,7 @@ class ClientController extends Controller
     $client->save();
     return redirect()
       ->route('clients-index')
-      ->with('success', 'New client has been added!');
+      ->with('success', 'New client '.$client->name.' '.$client->surname.' has been added!');
   }
 
   /**
@@ -98,18 +98,18 @@ class ClientController extends Controller
     $validator = Validator::make(
       $request->all(),
       [
-        'first_name' => 'required|max:50|min:3|alpha',
-        'last_name' => 'required|max:50|min:3|alpha',
+        'name' => 'required|max:50|min:3|alpha',
+        'sname' => 'required|max:50|min:3|alpha',
       ],
       [
-        'first_name.required' => 'Please enter client first name!',
-        'first_name.max' => 'Client first name is too long!',
-        'first_name.min' => 'Client first name is too short!',
-        'first_name.alpha' => 'Client first name must contain only letters!',
-        'last_name.required' => 'Please enter client last name!',
-        'last_name.max' => 'Client last name is too long!',
-        'last_name.min' => 'Client last name is too short!',
-        'last_name.alpha' => 'Client last name must contain only letters!',
+        'name.required' => 'Please enter client first name!',
+        'name.max' => 'Client first name is too long!',
+        'name.min' => 'Client first name is too short!',
+        'name.alpha' => 'Client first name must contain only letters!',
+        'sname.required' => 'Please enter client last name!',
+        'sname.max' => 'Client last name is too long!',
+        'sname.min' => 'Client last name is too short!',
+        'sname.alpha' => 'Client last name must contain only letters!',
       ]
     );
 
@@ -118,20 +118,22 @@ class ClientController extends Controller
       return redirect()->back()->withErrors($validator);
     }
 
-    $client->first_name = $request->first_name;
-    $client->last_name = $request->last_name;
+    $client->name = $request->name;
+    $client->surname = $request->sname;
 
     $client->save();
     return redirect()
       ->route('clients-index')
-      ->with('success', 'Client ' . $client->first_name . ' ' . $client->last_name . ' details have been updated!');
+      ->with('success', 'Client '.$client->name.' '.$client->surname.' details has been updated!');
   }
 
-
+  /**
+   * Delete a client
+   */
   public function delete(Client $client)
   {
     if ($client->accounts()->count()) {
-      return redirect()->back()->with('info', 'Can not delete client, because it has accounts!');
+      return redirect()->back()->with('info', 'Can not delete client, '.$client->name.' '.$client->surname.' has accounts!');
     }
 
     return view('clients.delete', [
@@ -147,6 +149,6 @@ class ClientController extends Controller
     $client->delete();
     return redirect()
       ->route('clients-index')
-      ->with('success', 'Client ' . $client->first_name . ' ' . $client->last_name . ' has been deleted!');
+      ->with('success', 'Client '.$client->name.' '.$client->surname.' has been deleted!');
   }
 }

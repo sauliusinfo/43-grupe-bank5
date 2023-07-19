@@ -28,39 +28,27 @@
             <td>{{$client->name}}</td>
             <td>{{$client->surname}}</td>
             <td>
-              <div class="text-center">
-                <button type="button" class="btn btn-outline-primary" style="width: 100%"
-                  onclick="window.location.href='{{route('accounts-index', ['id' => $client,'name' => $client->name,'sname' => $client->surname,'cid' => $client->card_id])}}'">
-                  {{$client->accounts()->count()}}
-                </button>
-              </div>
-            </td>
-            {{-- <td>
               <a href="{{route(
-                                'accounts-index',
-                                  [
-                                    'id' => $client,
-                                    'name' => $client->name,
-                                    'sname' => $client->surname,
-                                    'cid' => $client->card_id
-                                  ]
-                                )}}">
+                  'accounts-index',
+                  [
+                    'id' => $client,
+                    'name' => $client->name,
+                    'sname' => $client->surname,
+                    'cid' => $client->card_id
+                  ]
+                )}}"
+                class="btn btn-outline-primary d-grid gap-2">
                 {{$client->accounts()->count()}}
               </a>
-            </td> --}}
+            </td>
             <td>{{$client->accounts()->sum('amount')}}</td>
             <td>
-              <div class="text-center">
-                <button type="button" class="btn btn-outline-success edit"
-                  onclick="window.location.href='#'"></button>
-              </div>
+              <a href="{{route('clients-edit', $client)}}" class="btn btn-outline-success edit"></a>
             </td>
             <td>
-              <div class="text-center">
-                <button type="button" class="btn btn-outline-danger delete"
-                  onclick="window.location.href='#'"
-                  {{($client->accounts()->sum('amount') > 0) ? 'disabled' : ''}}></button>
-              </div>
+              <a href="{{route('clients-delete', $client)}}"
+                class="btn btn-outline-danger delete {{($client->accounts()->sum('amount') > 0) ? 'disabled' : ''}}">
+              </a>
             </td>
           </tr>
           

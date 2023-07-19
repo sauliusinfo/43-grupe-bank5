@@ -31,23 +31,15 @@
             <td>{{$account->account_no}}</td>
             <td>{{$account->amount}}</td>
             <td>
-              <div class="text-center">
-                <button type="button" class="btn btn-outline-primary"
-                  onclick="window.location.href='#'">Operations</button>
-              </div>
+              <a href="#" class="btn btn-outline-primary">Operations</a>
             </td>
             <td>
-              <div class="text-center">
-                <button type="button" class="btn btn-outline-success edit"
-                  onclick="window.location.href='#'"></button>
-              </div>
+              <a href="#" class="btn btn-outline-success edit"></a>
             </td>
             <td>
-              <div class="text-center">
-                <button type="button" class="btn btn-outline-danger delete"
-                  onclick="window.location.href='#'"
-                  {{($account->amount > 0) ? 'disabled' : ''}}></button>
-              </div>
+              <a href="#"
+                class="btn btn-outline-danger delete {{($account->amount > 0) ? 'disabled' : ''}}">
+              </a>
             </td>
           </tr>
           

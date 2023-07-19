@@ -38,7 +38,7 @@
                 Clients
               </a>
               <div class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="{{ route('clients-index') }}">Clients List</a>
+                <a class="dropdown-item" href="{{ route('clients-index') }}">List All Clients</a>
                 <a class="dropdown-item" href="{{ route('clients-create') }}">Create New Client</a>
               </div>
             </li>
@@ -49,9 +49,12 @@
                 Accounts
               </a>
               <div class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="{{ route('accounts-index') }}">Accounts List</a>
+                <a class="dropdown-item" href="{{ route('accounts-index') }}">List All Accounts</a>
                 <a class="dropdown-item" href="{{ route('accounts-create') }}">Create New Account</a>
               </div>
+            </li>
+            <li class="nav-item">
+              <a href="{{ route('statistics') }}" class="nav-link">Statistics</a>
             </li>
 
           </ul>

@@ -3,7 +3,7 @@
 @section('content')
 <div class="row d-flex justify-content-center align-items-center h-100">
   <div class="row justify-content-center">
-    <div class="col-md-2">
+    <div class="col-md-3">
       <h5>Add New Client</h5>
       
       <form method="post" action="{{route('clients-store')}}">
