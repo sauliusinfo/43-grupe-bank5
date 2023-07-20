@@ -12,7 +12,7 @@ class BankController extends Controller
   {
     return phpinfo();
   }
-  
+
   public function bank(Request $request)
   {
     // dump($request);
@@ -21,12 +21,14 @@ class BankController extends Controller
     $clients = Client::all();
     $accounts = Account::all();
 
-    return view('bank',
-    [
-      'clients' => $clients,
-      'accounts' => $accounts,
-      'serverInfo' => $serverInfo
-    ]);
+    return view(
+      'bank',
+      [
+        'clients' => $clients,
+        'accounts' => $accounts,
+        'serverInfo' => $serverInfo
+      ]
+    );
     // return view('bank', compact('serverInfo'));
   }
 }

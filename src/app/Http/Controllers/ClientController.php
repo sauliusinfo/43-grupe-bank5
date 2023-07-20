@@ -70,7 +70,7 @@ class ClientController extends Controller
     $client->save();
     return redirect()
       ->route('clients-index')
-      ->with('success', 'New client '.$client->name.' '.$client->surname.' has been added!');
+      ->with('success', 'New client ' . $client->name . ' ' . $client->surname . ' has been added!');
   }
 
   /**
@@ -125,7 +125,7 @@ class ClientController extends Controller
     $client->save();
     return redirect()
       ->route('clients-index')
-      ->with('success', 'Client '.$client->name.' '.$client->surname.' details has been updated!');
+      ->with('success', 'Client ' . $client->name . ' ' . $client->surname . ' details has been updated!');
   }
 
   /**
@@ -133,8 +133,10 @@ class ClientController extends Controller
    */
   public function delete(Client $client)
   {
-    if ($client->accounts()->count()) {
-      return redirect()->back()->with('info', 'Can not delete client, '.$client->name.' '.$client->surname.' has accounts!');
+    $accSum = $client->accounts()->sum('amount');
+
+    if ($accSum > 0) {
+      return redirect()->back()->with('info', 'Can not delete client, ' . $client->name . ' ' . $client->surname . ', balance is eq ' . $accSum);
     }
 
     return view('clients.delete', [
@@ -150,6 +152,6 @@ class ClientController extends Controller
     $client->delete();
     return redirect()
       ->route('clients-index')
-      ->with('success', 'Client '.$client->name.' '.$client->surname.' has been deleted!');
+      ->with('success', 'Client ' . $client->name . ' ' . $client->surname . ' has been deleted!');
   }
 }

@@ -5,7 +5,7 @@
   <div class="row justify-content-center">
     <div class="col-md-2">
       <h5>Edit Client</h5>
-      
+
       <form method="post" action="{{route('clients-update', $client)}}">
         <div class="mb-3" data-bs-theme="dark">
           <label class="form-lable">Name</label>

@@ -19,14 +19,14 @@ class AccountController extends Controller
 
     if ($query) {
       $accounts->where('client_id', '=', $query);
-                // ->orWhere('email', 'LIKE', '%' . $query . '%');
+      // ->orWhere('email', 'LIKE', '%' . $query . '%');
     }
 
     $accounts = $accounts->paginate(7);
     // dd($accounts);
 
     return view('accounts.index', [
-        'accounts' => $accounts
+      'accounts' => $accounts
     ]);
   }
 

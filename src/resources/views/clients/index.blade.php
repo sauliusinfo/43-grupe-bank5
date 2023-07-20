@@ -24,11 +24,11 @@
 
           @forelse($clients as $client)
           <tr>
-            <td scope="row">{{$counter++}}.</td>
-            <td>{{$client->name}}</td>
-            <td>{{$client->surname}}</td>
+            <td scope="row">{{ $counter++.'. '}}</td>
+            <td>{{ $client->name }}</td>
+            <td>{{ $client->surname }}</td>
             <td>
-              <a href="{{route(
+              <a href="{{ route(
                   'accounts-index',
                   [
                     'id' => $client,
@@ -36,22 +36,19 @@
                     'sname' => $client->surname,
                     'card_id' => $client->card_id
                   ]
-                )}}"
-                class="btn btn-outline-primary d-grid gap-2">
-                {{$client->accounts()->count()}}
+                ) }}" class="btn btn-outline-primary d-grid gap-2">
+                {{ $client->accounts()->count() }}
               </a>
             </td>
-            <td>{{$client->accounts()->sum('amount')}}</td>
+            <td>{{ number_format($client->accounts()->sum('amount'), 2).' Eur' }}</td>
             <td>
-              <a href="{{route('clients-edit', $client)}}" class="btn btn-outline-success edit"></a>
+              <a href="{{ route('clients-edit', $client) }}" class="btn btn-outline-success edit"></a>
             </td>
             <td>
-              <a href="{{route('clients-delete', $client)}}"
-                class="btn btn-outline-danger delete {{($client->accounts()->sum('amount') > 0) ? 'disabled' : ''}}">
-              </a>
+              <a href="{{ route('clients-delete', $client) }}" class="btn btn-outline-danger delete"></a>
             </td>
           </tr>
-          
+
           @empty
           <tr>
             <td colspan="7">
@@ -63,7 +60,7 @@
       </table>
 
       <div data-bs-theme="dark">
-        {{$clients->links('pagination::bootstrap-5')}}
+        {{ $clients->links('pagination::bootstrap-5') }}
       </div>
 
     </div>

@@ -27,11 +27,13 @@ class HomeController extends Controller
   {
     $clients = Client::all();
     $accounts = Account::all();
-    
-    return view('statistics',
-    [
-      'clients' => $clients,
-      'accounts' => $accounts,
-    ]);
+
+    return view(
+      'statistics',
+      [
+        'clients' => $clients,
+        'accounts' => $accounts,
+      ]
+    );
   }
 }

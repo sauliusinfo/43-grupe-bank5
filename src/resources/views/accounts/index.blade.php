@@ -5,10 +5,9 @@
   <div class="row justify-content-center">
     <div class="col-md-10">
       <h5>Accounts Of:
-        {{(request()->query('id'))
+        {{ (request()->query('id'))
           ? request()->query('name').' '.request()->query('sname').' ['.request()->query('card_id').']'
-          : 'All Clients'
-        }}
+          : 'All Clients' }}
       </h5>
 
       <table class="table table-dark table-hover my-table">
@@ -24,12 +23,12 @@
           @php
           $counter = ($accounts->currentPage() - 1) * $accounts->perPage() + 1;
           @endphp
-          
+
           @forelse($accounts as $account)
           <tr>
-            <td scope="row">{{$counter++}}.</td>
-            <td>{{$account->account_no}}</td>
-            <td>{{$account->amount}}</td>
+            <td scope="row">{{ $counter++.'. ' }}</td>
+            <td>{{ $account->account_no }}</td>
+            <td>{{ number_format($account->amount, 2).' Eur' }}</td>
             <td>
               <a href="#" class="btn btn-outline-primary">Operations</a>
             </td>
@@ -37,12 +36,11 @@
               <a href="#" class="btn btn-outline-success edit"></a>
             </td>
             <td>
-              <a href="#"
-                class="btn btn-outline-danger delete {{($account->amount > 0) ? 'disabled' : ''}}">
+              <a href="#" class="btn btn-outline-danger delete {{ ($account->amount > 0) ? 'disabled' : '' }}">
               </a>
             </td>
           </tr>
-          
+
           @empty
           <tr>
             <td colspan="6">
@@ -54,7 +52,7 @@
       </table>
 
       <div data-bs-theme="dark">
-        {{$accounts->appends(request()->query())->links('pagination::bootstrap-5')}}
+        {{ $accounts->appends(request()->query())->links('pagination::bootstrap-5') }}
       </div>
 
     </div>
