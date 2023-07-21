@@ -14,25 +14,12 @@ class AccountController extends Controller
      */
     public function index(Request $request)
     {
-        $query = $request->query('id');
-        // dd($query);
-
-        $accounts = Account::query();
-
-        if ($query) {
-            $accounts->where('client_id', '=', $query);
-            // ->orWhere('email', 'LIKE', '%' . $query . '%');
-        }
-
-        // Filter
         $filterValue = $request->filter_value ?? '0';
 
-        // Pagination
         $perPage = (int) 7;
 
-        if ($request->s) {
-
-            $accounts = Account::where('account', 'like', '%' . $request->s . '%')->paginate($perPage)->withQueryString();
+        if ($request->query('id')) {
+            $accounts = Account::where('client_id', '=', $request->query('id'))->paginate($perPage)->withQueryString();
         } else {
             $accounts = Account::select('accounts.*');
 
@@ -51,7 +38,6 @@ class AccountController extends Controller
             'accounts' => $accounts,
             'filterValue' => $filterValue,
             'perPage' => $perPage,
-            's' => $request->s ?? ''
         ]);
     }
 
