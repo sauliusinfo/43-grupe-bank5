@@ -19,9 +19,9 @@ class AccountController extends Controller
         $perPage = (int) 7;
 
         if ($request->query('id')) {
-            $accounts = Account::where('client_id', '=', $request->query('id'))->paginate($perPage)->withQueryString();
+            $accounts = Account::where('client_id', '=', $request->query('id'))->orderBy('amount', 'desc')->paginate($perPage)->withQueryString();
         } else {
-            $accounts = Account::select('accounts.*');
+            $accounts = Account::select('accounts.*')->orderBy('amount', 'desc');
 
             if ($filterValue == 'positive_amount') {
                 $accounts = $accounts->where('amount', '>', 0);
