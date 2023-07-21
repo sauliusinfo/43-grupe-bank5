@@ -3,7 +3,7 @@
 @section('content')
 <div class="row d-flex justify-content-center align-items-center h-100">
   <div class="row justify-content-center">
-    <div class="col-md-8">
+    <div class="col-md-6">
       <div class="card bg-dark text-white">
         <h1 class="card-title text-center">{{ __('B&B Statistics') }}</h1>
 
@@ -61,7 +61,7 @@
           <hr>
           <div class="row">
             <div class="d-grid gap-2">
-              <a href="{{ route('404') }}" class="btn btn-outline-danger">Take Taxes</a>
+              <a href="{{ route('taxes') }}" class="btn btn-outline-danger">Taxes</a>
             </div>
           </div>
 

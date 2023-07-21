@@ -16,7 +16,10 @@
         <div class="mb-3" data-bs-theme="dark">
           <input name="card_id" type="text" class="form-control" placeholder="Card ID" value="{{ old('card_id') }}">
         </div>
-        <button type="submit" class="btn btn-outline-success" style="width: 100%">Add</button>
+        <div class="d-flex justify-content-between">
+          <a href="{{route('clients-index')}}" class="btn btn-outline-secondary">Cancel</a>
+          <button type="submit" class="btn btn-outline-success">Add</button>
+        </div>
         @csrf
       </form>
 

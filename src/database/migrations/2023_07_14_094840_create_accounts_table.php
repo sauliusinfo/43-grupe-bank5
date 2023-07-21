@@ -14,7 +14,7 @@ return new class extends Migration
     Schema::create('accounts', function (Blueprint $table) {
       $table->id();
       $table->string('account_no', 20);
-      $table->decimal('amount', 10, 0)->default(0);
+      $table->decimal('amount', 10, 2)->default(0);
       $table->unsignedBigInteger('client_id');
       $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
       $table->timestamps();

@@ -22,35 +22,36 @@ use Illuminate\Support\Facades\Auth;
 // });
 
 Route::get('/404', function () {
-  return view('404');
+    return view('404');
 })->name('404');
 
 Route::get('statistics', function () {
-  return view('statistics');
+    return view('statistics');
 })->name('statistics');
 
 Route::get('/', [BankController::class, 'bank']);
 Route::get('/phpinfo', [BankController::class, 'phpinfo'])->name('about-php');
 Route::get('/black', [BankController::class, 'index']);
+Route::get('/taxes', [BankController::class, 'taxes'])->name('taxes');
 
 Route::prefix('clients')->name('clients-')->group(function () {
-  Route::get('/', [ClientController::class, 'index'])->name('index');
-  Route::get('/create', [ClientController::class, 'create'])->name('create');
-  Route::post('/', [ClientController::class, 'store'])->name('store');
-  Route::get('/edit/{client}', [ClientController::class, 'edit'])->name('edit');
-  Route::put('/{client}', [ClientController::class, 'update'])->name('update');
-  Route::get('/delete/{client}', [ClientController::class, 'delete'])->name('delete');
-  Route::delete('/{client}', [ClientController::class, 'destroy'])->name('destroy');
+    Route::get('/', [ClientController::class, 'index'])->name('index');
+    Route::get('/create', [ClientController::class, 'create'])->name('create');
+    Route::post('/', [ClientController::class, 'store'])->name('store');
+    Route::get('/edit/{client}', [ClientController::class, 'edit'])->name('edit');
+    Route::put('/{client}', [ClientController::class, 'update'])->name('update');
+    Route::get('/delete/{client}', [ClientController::class, 'delete'])->name('delete');
+    Route::delete('/{client}', [ClientController::class, 'destroy'])->name('destroy');
 });
 
 Route::prefix('accounts')->name('accounts-')->group(function () {
-  Route::get('/', [AccountController::class, 'index'])->name('index');
-  Route::get('/create', [AccountController::class, 'create'])->name('create');
-  Route::post('/', [AccountController::class, 'store'])->name('store');
-  Route::get('/edit/{client}', [AccountController::class, 'edit'])->name('edit');
-  Route::put('/{client}', [AccountController::class, 'update'])->name('update');
-  Route::get('/delete/{client}', [AccountController::class, 'delete'])->name('delete');
-  Route::delete('/{client}', [AccountController::class, 'destroy'])->name('destroy');
+    Route::get('/', [AccountController::class, 'index'])->name('index');
+    Route::get('/create', [AccountController::class, 'create'])->name('create');
+    Route::post('/', [AccountController::class, 'store'])->name('store');
+    Route::get('/edit/{account}', [AccountController::class, 'edit'])->name('edit');
+    Route::put('/{account}', [AccountController::class, 'update'])->name('update');
+    Route::get('/delete/{account}', [AccountController::class, 'delete'])->name('delete');
+    Route::delete('/{account}', [AccountController::class, 'destroy'])->name('destroy');
 });
 
 Auth::routes();

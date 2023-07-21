@@ -10,11 +10,13 @@
 //my custom styles
 .my-bg {
     // background-color: #6a11cb;
-    background: linear-gradient(
-        to left,
-        rgba(106, 17, 203, 1),
-        rgba(37, 117, 252, 1)
-    );
+    background: linear-gradient(to left,
+            rgba(106, 17, 203, 1),
+            rgba(37, 117, 252, 1));
+}
+
+a {
+    text-decoration: none;
 }
 
 .hero {
@@ -47,6 +49,7 @@
             line-height: 1;
         }
     }
+
     &.minus {
         &::after {
             content: "\2296";
@@ -54,6 +57,7 @@
             line-height: 1;
         }
     }
+
     &.edit {
         &::after {
             content: "\00270E";
@@ -61,6 +65,7 @@
             line-height: 1;
         }
     }
+
     &.delete {
         &::after {
             content: "\002717";
@@ -78,15 +83,14 @@
 // error 404
 .my-bg-text {
     // background: linear-gradient(to right, #FFC371, #FF5F6D);
-    background: linear-gradient(
-        to right,
-        rgba(124, 35, 221, 1),
-        rgba(43, 123, 252, 1)
-    );
+    background: linear-gradient(to right,
+            rgba(124, 35, 221, 1),
+            rgba(43, 123, 252, 1));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
 .text-xl {
     font-size: 5rem;
 }
