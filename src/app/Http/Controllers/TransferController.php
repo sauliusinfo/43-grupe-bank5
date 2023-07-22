@@ -7,6 +7,7 @@ use App\Models\Client;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class TransferController extends Controller
 {
@@ -29,14 +30,19 @@ class TransferController extends Controller
             $request->all(),
             [
                 'from_account_id' => 'integer',
-                'to_account_id' => 'integer',
-                'amount' => ['required', 'min:0', 'not_in:0', 'numeric'],
+                'to_account_id' => [
+                    'integer',
+                    Rule::notIn([$request->input('from_account_id')]),
+                ],
+                'amount' => ['required', 'min:0', 'numeric'],
             ],
             [
                 'from_account_id.integer' => 'Please select the account From Client!',
                 'to_account_id.integer' => 'Please select the account To Client!',
+                'to_account_id.not_in' => 'The accounts must be different!',
                 'amount.required' => 'Please enter the amount!',
-                'amount.min', 'amount.not_in' => 'The amount must be a positive digit!'
+                'amount.min' => 'The amount must be a positive digit!',
+                'amount.not_in' => 'The amount must be a positive digit!',
             ]
         );
 
