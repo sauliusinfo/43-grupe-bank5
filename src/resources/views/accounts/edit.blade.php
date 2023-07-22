@@ -4,7 +4,7 @@
     <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="row justify-content-center">
             <div class="col-md-3">
-                <h5>Account Options</h5>
+                <h5 class="text-end">Account Options</h5>
 
                 <form method="post" action="{{ route('accounts-update', $account) }}">
                     <div class="mb-3" data-bs-theme="dark">
@@ -24,7 +24,6 @@
                         <a href="{{ route('accounts-index') }}" class="btn btn-outline-secondary">Cancel</a>
                         <button type="submit" class="btn btn-outline-success" name="plus" value="true">Plus</button>
                         <button type="submit" class="btn btn-outline-danger" name="minus" value="true">Minus</button>
-                        <a href="{{ route('accounts-index') }}" class="btn btn-outline-primary">Transfer</a>
                     </div>
                     @method('PUT')
                     @csrf

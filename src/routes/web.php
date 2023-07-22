@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BankController;
 use App\Http\Controllers\ClientController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\TransferController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,6 +54,9 @@ Route::prefix('accounts')->name('accounts-')->group(function () {
     Route::get('/delete/{account}', [AccountController::class, 'delete'])->name('delete');
     Route::delete('/{account}', [AccountController::class, 'destroy'])->name('destroy');
 });
+
+Route::get('/transfers', [TransferController::class, 'transfer'])->name('transfers');
+Route::post('/transfers', [TransferController::class, 'execute'])->name('execute');
 
 Auth::routes();
 

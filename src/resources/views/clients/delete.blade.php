@@ -4,7 +4,7 @@
     <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="row justify-content-center">
             <div class="col-md-3">
-                <h5>Confirm Client Deletion</h5>
+                <h5 class="text-end">Confirm Client Deletion</h5>
 
                 <form method="post" action="{{ route('clients-destroy', $client) }}">
                     <div class="mb-3" data-bs-theme="dark">

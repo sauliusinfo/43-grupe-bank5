@@ -52,6 +52,9 @@
               </div>
             </li>
             <li class="nav-item">
+                <a href="{{ route('transfers') }}" class="nav-link">Transfers</a>
+              </li>
+            <li class="nav-item">
               <a href="{{ route('statistics') }}" class="nav-link">Statistics</a>
             </li>
 
