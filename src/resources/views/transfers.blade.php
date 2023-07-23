@@ -37,7 +37,7 @@
                     </div>
                     <div class="d-flex justify-content-between">
                         <a href="{{ route('accounts-index') }}" class="btn btn-outline-secondary">Cancel</a>
-                        <button type="submit" class="btn btn-outline-success">Transfer</button>
+                        <button id="plusButton" type="submit" class="btn btn-outline-success">Transfer</button>
                     </div>
                     @csrf
                 </form>
