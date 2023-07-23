@@ -7,12 +7,14 @@
                 <h5 class="text-end">Account Options</h5>
 
                 <form method="post" action="{{ route('accounts-update', $account) }}">
+
                     <div class="mb-3" data-bs-theme="dark">
-                        <label class="form-lable">Account No</label>
-                        <input name="" type="text" class="form-control" value="{{ $account->account_no }}" readonly>
+                        <label class="form-label">Account No</label>
+                        <input name="" type="text" class="form-control" value="{{ $account->account_no }}"
+                            readonly>
                     </div>
                     <div class="mb-3" data-bs-theme="dark">
-                        <label class="form-lable">Client</label>
+                        <label class="form-label">Client</label>
                         <input name="" type="text" class="form-control"
                             value="{{ $account->client->name . ' ' . $account->client->surname }}" readonly>
                     </div>
@@ -22,8 +24,10 @@
                     </div>
                     <div class="d-flex justify-content-between">
                         <a href="{{ route('accounts-index') }}" class="btn btn-outline-secondary">Cancel</a>
-                        <button type="submit" class="btn btn-outline-success" name="plus" value="true">Plus</button>
-                        <button type="submit" class="btn btn-outline-danger" name="minus" value="true">Minus</button>
+                        <button type="submit" class="btn btn-outline-success" name="plus" value="true"
+                            id="plusButton">Plus</button>
+                        <button type="submit" class="btn btn-outline-danger" name="minus" value="true"
+                            id="minusButton">Minus</button>
                     </div>
                     @method('PUT')
                     @csrf
