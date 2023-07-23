@@ -9,6 +9,11 @@ class Account extends Model
 {
   use HasFactory;
 
+  protected $fillable = [
+    'account_no',
+    'amount',
+  ];
+
   public function client()
   {
     // return $this->belongsTo(Client::class);

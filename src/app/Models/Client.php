@@ -9,6 +9,12 @@ class Client extends Model
 {
   use HasFactory;
 
+  protected $fillable = [
+    'name',
+    'surname',
+    'card_id',
+  ];
+
   public function accounts()
   {
     return $this->hasMany(Account::class, 'client_id', 'id');
