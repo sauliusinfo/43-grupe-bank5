@@ -17,7 +17,7 @@ return new class extends Migration
       $table->decimal('amount', 10, 2)->default(0);
       $table->unsignedBigInteger('client_id');
       $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
-      $table->timestamps();
+    //   $table->timestamps();
     });
   }
 

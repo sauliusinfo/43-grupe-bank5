@@ -16,7 +16,7 @@ return new class extends Migration
       $table->string('name', 50);
       $table->string('surname', 50);
       $table->string('card_id', 11);
-      $table->timestamps();
+    //   $table->timestamps();
     });
   }
 
